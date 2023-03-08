@@ -131,6 +131,9 @@ pub enum PgInterval {
     MinuteToSecond,
 }
 
+#[cfg(feature = "backend-bigquery")]
+pub type BqInterval = PgInterval;
+
 // All MySQL year type field length sizes
 #[derive(Debug, Clone, Eq, PartialEq)]
 pub enum MySqlYear {

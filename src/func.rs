@@ -5,6 +5,9 @@ use crate::{expr::*, types::*};
 #[cfg(feature = "backend-postgres")]
 pub use crate::extension::postgres::{PgFunc, PgFunction};
 
+#[cfg(feature = "backend-bigquery")]
+pub use crate::extension::bigquery::{BqFunc, BqFunction};
+
 /// Functions
 #[derive(Debug, Clone)]
 pub enum Function {
@@ -26,6 +29,8 @@ pub enum Function {
     Random,
     #[cfg(feature = "backend-postgres")]
     PgFunction(PgFunction),
+    #[cfg(feature = "backend-bigquery")]
+    BqFunction(BqFunction),
 }
 
 /// Function call.

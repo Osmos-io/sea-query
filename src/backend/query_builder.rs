@@ -629,6 +629,8 @@ pub trait QueryBuilder: QuotedBuilder + EscapeBuilder + TableRefBuilder {
                     Function::Random => self.random_function(),
                     #[cfg(feature = "backend-postgres")]
                     Function::PgFunction(_) => unimplemented!(),
+                    #[cfg(feature = "backend-bigquery")]
+                    Function::BqFunction(_) => unimplemented!(),
                 }
             )
             .unwrap();
